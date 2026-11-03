@@ -1,0 +1,203 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mindmap Sự kiện TT ĐMST</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one-screen mind map — hub in the middle, group 1 on the left, groups 2–6 stacked on the right, curved connectors */
+:root{
+  --bg:#F3F3F2; --surface:#FFFFFF; --ink:#111111; --muted:#5E5E5C; --line:#BDBDB9; --edge:#E1E1DE; --hover:#F6EDED;
+  --red:#E30613; --hubbg:#111111; --hubfg:#FFFFFF;
+  --t-doc:#1F5FBF; --t-xls:#1C7C45; --t-pdf:#C2141E; --t-img:#86600F; --t-vid:#5B3FA8;
+  --display:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Mona Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141414; --surface:#1E1E1E; --ink:#F2F2F0; --muted:#A8A8A4; --line:#55554F; --edge:#2E2E2C; --hover:#2A2020;
+  --red:#FF3B3B; --hubbg:#F2F2F0; --hubfg:#111111;
+  --t-doc:#7FB0FF; --t-xls:#6FD39A; --t-pdf:#FF7A7A; --t-img:#E2B85C; --t-vid:#B9A2FF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141414; --surface:#1E1E1E; --ink:#F2F2F0; --muted:#A8A8A4; --line:#55554F; --edge:#2E2E2C; --hover:#2A2020;
+  --red:#FF3B3B; --hubbg:#F2F2F0; --hubfg:#111111;
+  --t-doc:#7FB0FF; --t-xls:#6FD39A; --t-pdf:#FF7A7A; --t-img:#E2B85C; --t-vid:#B9A2FF; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.35}
+.wrap{max-width:1440px;margin:0 auto;padding-block:20px 28px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:8px}
+
+.top{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow b{color:var(--red)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--muted)}
+
+.tag{flex:none;font-style:normal;font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:2px 6px;border-radius:5px;border:1.5px solid currentColor;min-width:44px;text-align:center;line-height:1.3}
+.tag.doc{color:var(--t-doc)}.tag.xls{color:var(--t-xls)}.tag.pdf{color:var(--t-pdf)}.tag.img{color:var(--t-img)}.tag.vid{color:var(--t-vid)}
+
+/* Board */
+.board{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 230px minmax(0,1fr);gap:56px;align-items:center}
+svg.links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+svg.links path{fill:none;stroke:var(--line);stroke-width:2}
+svg.links circle{fill:var(--red)}
+.side{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;min-width:0}
+
+.hub{position:relative;z-index:1;background:var(--hubbg);color:var(--hubfg);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.hub .k{font-family:var(--display);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700}
+.hub h1{font-family:var(--display);font-size:25px;font-weight:700;line-height:1.12;margin:0;text-wrap:balance}
+.hub .d{font-size:15px;opacity:.78;margin:0}
+.hub .s{font-family:var(--display);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.hub .s b{color:var(--red)}
+.hub a.open{align-self:flex-start;background:var(--red);color:#fff;font-weight:600;font-size:15px;padding:8px 14px;border-radius:999px}
+.hub a.open:hover{filter:brightness(1.1)}
+
+.card{background:var(--surface);border:1.5px solid var(--edge);border-radius:14px;padding:12px 14px}
+.ch{display:flex;align-items:center;gap:10px;padding:2px 2px 8px;border-bottom:1px solid var(--edge);margin-bottom:6px}
+.num{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;
+  font-family:var(--display);font-weight:700;font-size:15px}
+.ct{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.2;flex:1;min-width:0}
+.cnt{flex:none;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.go{flex:none;color:var(--muted);font-size:16px}
+a.ch:hover .ct,a.sh:hover .st{color:var(--red)}
+a.ch:hover .go,a.sh:hover .go{color:var(--red)}
+
+.sec+.sec{margin-top:6px}
+.sh{display:flex;align-items:center;gap:8px;padding:6px 2px 2px}
+.sh .sn{font-family:var(--display);font-weight:700;font-size:14px;color:var(--red);font-variant-numeric:tabular-nums}
+.sh .st{font-family:var(--display);font-weight:700;font-size:16px;flex:1;min-width:0}
+
+.files{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px 10px;list-style:none;margin:0;padding:0}
+.files a{display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:8px;font-size:15.5px;min-height:34px}
+.files a span{min-width:0}
+.files a:hover{background:var(--hover);color:var(--red)}
+
+footer{margin-top:16px;font-size:14px;color:var(--muted)}
+
+@media (max-width:1000px){
+  .board{grid-template-columns:minmax(0,1fr);gap:14px}
+  .hub{order:-1}
+  svg.links{display:none}
+}
+@media (max-width:560px){.files{grid-template-columns:minmax(0,1fr)}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><b>VDCD Group</b> · Bộ tài liệu sự kiện 22.10.2026</div>
+    <div class="legend"><i class="tag doc">Word</i><i class="tag xls">Excel</i><i class="tag pdf">PDF</i><i class="tag img">Ảnh</i><i class="tag vid">Video</i><span>· bấm để mở trên Drive</span></div>
+  </div>
+
+  <div class="board" id="board">
+    <svg class="links" id="links" aria-hidden="true"></svg>
+    <div class="side" id="left"></div>
+    <div class="hub" id="hub">
+      <span class="k">Thư mục gốc</span>
+      <h1>Sự kiện công nhận TT ĐMST</h1>
+      <p class="d">Hội nghị ra mắt Trung tâm Đổi mới sáng tạo Ninh Bình</p>
+      <span class="s" id="stats"></span>
+      <a class="open" href="https://drive.google.com/drive/folders/1vpiJzG3xP-Gu27utxtf57j5cdJgzLcfv" target="_blank" rel="noopener">Mở thư mục gốc ↗</a>
+    </div>
+    <div class="side" id="right"></div>
+  </div>
+
+  <footer>Người nhận cần được chia sẻ quyền xem thư mục Drive để mở được các liên kết.</footer>
+</div>
+
+<script>
+const F=id=>"https://drive.google.com/drive/folders/"+id;
+const D=id=>"https://drive.google.com/file/d/"+id+"/view";
+const TAG={doc:"Word",xls:"Excel",pdf:"PDF",img:"Ảnh",vid:"Video"};
+const G1={n:"1",t:"Thiết kế, in ấn",id:"1WiWrndPVHUF3ANi9tnLTtkav71pUgxKM",subs:[
+  {n:"1.1",t:"Trình chiếu sân khấu (Backled)",id:"1E4ClSPqxUomolytPcAYR9Av9epIpyIxx",f:[
+   ["Bộ backled tổng hợp","pdf","1Kyz6iKbuu9LML_iGoVNEXTCJE0NdEv4x"],
+   ["Bộ backdrop tổng hợp","img","1VhQqTdwaQuHfVHhcYofVznPIhXqY4BVN"],
+   ["Chính sân khấu","img","1An-8epnggE1o2cLZv3ZNU7r6-CDnAj3G"],
+   ["Cánh 2","img","1IkOLmcoWYJFMWoMpMOqFssZ8fo2xPe8w"],
+   ["2 bên cánh gà","img","13yF9ntNH06clK8iznZyraBWyDF_nllGB"],
+   ["Ngang chào mừng","img","1n31YaYx7MtenwzIjDTPwjiMSifa0Z4pg"],
+   ["Ngang chào mừng · bản 2","img","1uXc07LTQQLFUjY2r83HGdhMfU28uM3DF"],
+   ["Ngang chào mừng · trùng","img","1DaGTTxrUG_npHbfAPz7EARRCKFWLWzPu"],
+   ["Công bố QĐ ra mắt","img","10htNab9nWmGf9EQu11p-7RwOVpyYBr2Q"],
+   ["Khen thưởng tập thể","img","1Iqo-fSRq7rGTBuwpM8YnlaUvzNWnpZ3o"],
+   ["Khen thưởng cá nhân","img","1GKz7vDtWjigB8qv5O2ivm7WsnJVwAzzn"],
+   ["Ký kết MOU","img","16r2syRFUmQE8iDwW22CPNgCdwMGMX1-C"],
+   ["Tiệc chiêu đãi","img","14z8dd_E5qhZI9qiNCYjW3JV1tdz3hHJt"]]},
+  {n:"1.2",t:"Backdrop, Standee",id:"1bwSC2FD3lPBX5MJ04Qf2V4Lp--DkZkzV",f:[
+   ["Backdrop check-in","img","1aU81rYd5Slc2jepMeph5D2m_mkfRwuKh"],
+   ["Backdrop trưng bày SP","img","1kro6RblFvQbQjk1XL1bqsXgdkCA4fkpT"],
+   ["Standee hội nghị","img","1IV7QChRDRmBHBzNV1hHXztQR-KbAVbxr"],
+   ["Standee chào mừng thăm TT","img","1vbUSNTrBBHhLeSs0XXmdlk_DRUhSMPx9"],
+   ["Backled chào mừng thăm TT","img","1wnJHyNrNFwvydSWN-42ZMEVZVE5qdNTO"]]},
+  {n:"1.3",t:"Thư mời, biển tên, thẻ BTC, sơ đồ",id:"1FHC169DLrZlz7KAEdzI3iyVQ5jPfwXLo",f:[
+   ["Thư mời hội nghị","pdf","1VkytHYyat_SKpmfwMTVE7Nh_RL0rYtOj"],
+   ["Thư mời tham quan","pdf","16bBodAIDPv-rBu1MKTSkPJS9DIhU0EPk"],
+   ["Biển tên đại biểu","pdf","1ySqAIITULa_9X5f_DjHWUu94sKdsHXZo"],
+   ["Thẻ BTC + bìa MC","pdf","1_qAPskE80dnewdLt9feuHbEOVvDAufgF"],
+   ["Standcard trưng bày","pdf","1xROogTKCAJWrLR-zgeQTQEJE8DKHPgoo"],
+   ["Sơ đồ tổng","img","11lQ_JGRDKFVwxjz25B1QUk9MKWuyV1BK"],
+   ["Sơ đồ sảnh, trưng bày","img","1DuJ-JDpCbJUGmQ8VIVFsZ6NucJeA23yu"],
+   ["Sơ đồ legend","img","1dDZJuvclmV3guwc_qBFuhHWSv9dvD5YT"]]}]};
+const RIGHT=[
+ {n:"2",t:"Quà tặng",id:"1ulfld0RNe-mPf-XI4SaL36xMKjFgZjK6",f:[
+   ["Mẫu quà tặng 1","img","1D9cAmUx4HWb3i1nA7GFmmdQMJKUGeFbA"],
+   ["Mẫu quà tặng 2","img","1Lwmk0tWCFeyh1-8PXyCSRpbMufI-nMU0"]]},
+ {n:"3",t:"Phát biểu, lời dẫn MC, TCBC",id:"1eO6CDC_IYuQX1cd4UIbRsrbUbsrVDiSY",f:[
+   ["Kịch bản MC (duyệt 20/10)","doc","1-KbbX82AGBYJv5jAkTdwVRU4pTwsRwLm"],
+   ["Phát biểu khai mạc","doc","1F3lqYNHjAGY5Mk6KuIvVmqHQC4g-yzdY"],
+   ["Phát biểu báo cáo","doc","1zwy5Hlwj2Bg_hq-DW4FMqij3Xg5FDaEo"],
+   ["Thông cáo báo chí","doc","1_revTpENBIJah6zKbyKZmTPL_f61bz-w"]]},
+ {n:"4",t:"Phim chiếu tại sự kiện",id:"1QqN_qJAhUqLSPSTM8yD5zdCzJlKOm1ex",f:[
+   ["Phim TT ĐMST (chuẩn 07)","vid","1FjxUNpffT_fNW2NLe-xUssejZdN027gb"],
+   ["Kịch bản phim","doc","1amx4FznqyW7gd2FIHPFV4NG0DfbTUQMj"],
+   ["Lời bình phim","doc","1ql5EsrRs7ck5OuGB5ikuL8qLIsH-FwKO"]]},
+ {n:"5",t:"Hồ sơ khen thưởng",id:"1ABBOsB8Tc1MkxB7TUnnSCTah7BWlrwbG",f:[
+   ["QĐ khen thưởng ĐMST","pdf","1H7ggroTazb2WhU712BFxogdnJfkbR2-Y"],
+   ["Tờ trình tổng","doc","17qHLjaZwC_2OnEPJO14WIhActNFzEyRa"],
+   ["DS đề nghị khen thưởng","doc","1OKxB_vT6tWRKLRHWSigT4KmyKuhqJXlU"],
+   ["CV xác nhận · Thuế","doc","1s0W0GiBCwxuKWt-2NLkEcTqIrG4URlal"],
+   ["CV xác nhận · BHXH","doc","1TIIV1DDms3B82z0_nvgM_PzamOE-Fn7N"],
+   ["CV xác nhận · Công an","doc","17HDUU8ooVqymvxa8a5MNVZEU4COTvpGa"],
+   ["CV xác nhận · UBND phường","doc","1Lg1fqwTumWUPQW3AWrAJNt4PN2m8tSxH"]]},
+ {n:"6",t:"Kế hoạch, checklist, khách mời",id:"1VVbCuwlj5Pw3rRrWyzkRE_5EGKu-EqOi",f:[
+   ["Checklist sự kiện","xls","1lYTm5x7Hg823nd7NpOfhIdCenkow8N_w"],
+   ["Agenda chương trình","xls","1i07qayWsjp-RGhPyQRzsoXgo58X3gzKL"],
+   ["Danh sách khách mời","xls","1UeN_Sr1uYDbBdjA-1ercMQRbI-jIw9kW"]]}
+];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const L=(h,c,inner)=>`<a class="${c}" href="${h}" target="_blank" rel="noopener">${inner}</a>`;
+const files=f=>`<ul class="files">${f.map(([t,k,id])=>`<li>${L(D(id),"",`<i class="tag ${k}">${TAG[k]}</i><span>${esc(t)}</span>`)}</li>`).join("")}</ul>`;
+const head=(b,c)=>L(F(b.id),"ch",`<span class="num">${b.n}</span><span class="ct">${esc(b.t)}</span><span class="cnt">${c} tệp</span><span class="go">↗</span>`);
+
+const g1count=G1.subs.reduce((s,x)=>s+x.f.length,0);
+document.getElementById("left").innerHTML=`<div class="card" data-link>${head(G1,g1count)}${G1.subs.map(s=>
+  `<div class="sec">${L(F(s.id),"sh",`<span class="sn">${s.n}</span><span class="st">${esc(s.t)}</span><span class="cnt">${s.f.length}</span><span class="go">↗</span>`)}${files(s.f)}</div>`).join("")}</div>`;
+document.getElementById("right").innerHTML=RIGHT.map(b=>`<div class="card" data-link>${head(b,b.f.length)}${files(b.f)}</div>`).join("");
+const total=g1count+RIGHT.reduce((s,b)=>s+b.f.length,0);
+document.getElementById("stats").innerHTML=`<b>6</b> nhóm · <b>3</b> nhóm con · <b>${total}</b> tệp`;
+
+const board=document.getElementById("board"),svg=document.getElementById("links"),hub=document.getElementById("hub");
+function draw(){
+  if(getComputedStyle(svg).display==="none"){svg.innerHTML="";return;}
+  const B=board.getBoundingClientRect(),H=hub.getBoundingClientRect();
+  const hy=H.top+H.height/2-B.top;
+  let out="";
+  board.querySelectorAll(".card[data-link]").forEach(card=>{
+    const C=card.getBoundingClientRect(),hd=card.querySelector(".ch").getBoundingClientRect();
+    const y=hd.top+hd.height/2-B.top;
+    const leftSide=C.right<=H.left+1;
+    const x1=leftSide?H.left-B.left:H.right-B.left;
+    const x2=leftSide?C.right-B.left:C.left-B.left;
+    const mx=(x1+x2)/2;
+    out+=`<path d="M${x1},${hy} C${mx},${hy} ${mx},${y} ${x2},${y}"/><circle cx="${x2}" cy="${y}" r="4"/>`;
+  });
+  svg.innerHTML=out+`<circle cx="${H.left-B.left}" cy="${hy}" r="5"/><circle cx="${H.right-B.left}" cy="${hy}" r="5"/>`;
+}
+draw();
+try{new ResizeObserver(draw).observe(board);}catch(e){addEventListener("resize",draw);}
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+</script>
+
+</body></html>
